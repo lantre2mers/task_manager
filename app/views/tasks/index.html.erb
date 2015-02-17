@@ -1,0 +1,13 @@
+<h1>List of tasks</h1>
+<ul><% @tasks.each do |task| %>
+<li><%= link_to task.description, task_path(task) %>, <%= task.due_date %>, <%= task.status %>
+<%= link_to "Delete", task_path(task),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %></li>
+<% end %></ul>
+
+<%= link_to "Create a new task", task_new_path(@task),
+  method: :get %>
+
+
+
